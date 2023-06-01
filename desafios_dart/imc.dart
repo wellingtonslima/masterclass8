@@ -13,7 +13,7 @@ main(){
   double peso = 72.0;
 
   print(calcularIMC(altura, peso));
-}
+} 
 
 double calcularIMC(double altura, double peso){
   double imc = peso / (altura * altura);
