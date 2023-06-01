@@ -1,3 +1,4 @@
+
 /*
 DESAFIO MASTERCLASS
 
@@ -9,19 +10,47 @@ conhecida na antiguidade.
 
 Implemente a sequencia fibonacci com funcões recursivamente usando o Dart.
 */
+import 'dart:io';
 
 main (){
-  int qtdTermo = 10;
 
-  sequenciaFibonacci(qtdTermo);
+  var valorInformado;
+  int ?qtdTermo;
+  bool isRunning = true;
+  
+  print("\x1B[2J\x1B[0;0H");
+  print("=== Sequencia de Fibonacci ===");
+  print("Digite a quantidade de termos para calcular a sequencia de Fibonacci:");
+  valorInformado = stdin.readLineSync();
+
+  while(isRunning){
+    print("\x1B[2J\x1B[0;0H");
+    if(valorInformado != 's'){
+      qtdTermo = int.tryParse(valorInformado);
+      if(int.tryParse(valorInformado) != null){
+        print("=== Sequencia fibonacci ===");
+        sequenciaFibonacci(qtdTermo);
+        print("=== Fim da sequencia fibonacci ===");
+        isRunning = false;
+        print("=== Fim do programa ===");
+      }else{
+        print("O valor digitado não é um inteiro.");
+        print("Por favor, digite outro número, ou s para sair do programa.");
+        valorInformado = stdin.readLineSync();
+      }
+    }else{
+      isRunning = false;
+      print("=== Fim do programa ===");
+    }
+  }
 }
 
-void sequenciaFibonacci(int qtdTermo){
+void sequenciaFibonacci(var qtdTermo){
 
   int numeroAnterior = 1;
   int numeroAtual;
   int somatorio = 0;
-
+    
   for (int i = 0; i <= qtdTermo; i++) {
     numeroAtual = somatorio;
     somatorio = numeroAnterior + numeroAtual;
@@ -29,6 +58,7 @@ void sequenciaFibonacci(int qtdTermo){
 
     numeroAnterior = numeroAtual;
   }
+
 }
 
 
