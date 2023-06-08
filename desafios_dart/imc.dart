@@ -15,7 +15,8 @@ main(){
   bool isRunning = true;
   var valorDigitado;
   var valorDigitadoDouble;
-
+  
+  print("\x1B[2J\x1B[0;0H");
   print("=== Cálculo de IMC ===");
   print('\n');
   while(isRunning){

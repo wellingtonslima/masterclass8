@@ -53,12 +53,18 @@ void sequenciaFibonacci(var qtdTermo){
     
   for (int i = 0; i <= qtdTermo; i++) {
     numeroAtual = somatorio;
-    somatorio = numeroAnterior + numeroAtual;
+    calcularValor(numeroAnterior,numeroAtual);
     print (somatorio);
 
     numeroAnterior = numeroAtual;
   }
 
+}
+
+int calcularValor(numeroAnterior, numeroAtual){
+  var somatorio = numeroAnterior + numeroAtual;
+  calcularValor(numeroAtual, somatorio);
+  return somatorio;
 }
 
 
